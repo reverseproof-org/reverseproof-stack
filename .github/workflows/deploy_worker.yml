@@ -1,1 +1,21 @@
-
+on:
+  workflow_dispatch:
+    inputs:
+      tags:
+        description: 'trigger workflow'
+  push:
+    branches:
+    - main
+    - release/*
+      
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - uses: actions/checkout@v2
+      - name: Publish
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CF_API_TOKEN }}
