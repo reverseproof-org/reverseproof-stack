@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: yarn install
-        uses: Jaid/action-npm-install@1.2.4
+        uses: Jaid/action-npm-install@1.2.1
         with:
           packageManager: "yarn"
       - name: Deploy API
