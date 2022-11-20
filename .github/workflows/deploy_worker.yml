@@ -14,6 +14,10 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v2
+      - name: yarn install
+        uses: Jaid/action-npm-install@1.2.4
+        with:
+          packageManager: "yarn"
       - name: Deploy API
         uses: cloudflare/wrangler-action@2.0.0
         with:
