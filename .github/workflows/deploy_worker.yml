@@ -11,13 +11,13 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Deploy API
     steps:
       - uses: actions/checkout@v2
       - name: yarn install
         uses: jaid/action-npm-install@v1.2.1
         with:
-          packageManager: "yarn"
+          packageManager: 'yarn'
       - name: Deploy API
         uses: cloudflare/wrangler-action@2.0.0
         with:
