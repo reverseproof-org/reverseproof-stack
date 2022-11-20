@@ -1,8 +1,11 @@
 {
   "name": "reverseproof-stack",
   "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run-many --target=dev",
+    "lint": "nx run-many --target=lint --verbose",
+    "test": "nx run-many --target=test --verbose"
+  },
   "private": true,
   "dependencies": {},
   "devDependencies": {

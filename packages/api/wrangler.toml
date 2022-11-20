@@ -1,0 +1,4 @@
+name="reverseproof-api"
+main="src/index.ts"
+
+compatibility_date = "2022-11-19"

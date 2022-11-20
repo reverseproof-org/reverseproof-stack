@@ -1,0 +1,24 @@
+{
+  "name": "reverseproof-api",
+  "version": "0.0.0",
+  "author": "The ReverseProof Team",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "lint": "eslint",
+    "test": "eslint && jest --verbose",
+    "dev": "wrangler dev src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^2.5.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "@types/jest": "^29.1.2",
+    "esbuild": "^0.15.5",
+    "esbuild-jest": "^0.5.0",
+    "jest": "^29.1.2",
+    "jest-environment-miniflare": "^2.10.0",
+    "wrangler": "^2.0.22"
+  }
+}
