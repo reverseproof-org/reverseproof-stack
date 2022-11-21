@@ -9,15 +9,19 @@ on:
       - release/*
 
 jobs:
-  deploy:
+  install:
     runs-on: ubuntu-latest
-    name: Deploy API
+    name: Install dependencies
     steps:
       - uses: actions/checkout@v2
       - name: yarn install
         uses: jaid/action-npm-install@v1.2.1
         with:
           packageManager: 'yarn'
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy API
+    steps:
       - name: Deploy API
         uses: cloudflare/wrangler-action@2.0.0
         with:

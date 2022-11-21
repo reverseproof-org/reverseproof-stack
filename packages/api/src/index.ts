@@ -1,12 +1,10 @@
-import { Hono } from 'hono'
-import { poweredBy } from 'hono/powered-by'
+import { Hono } from 'hono';
+import { poweredBy } from 'hono/powered-by';
 
-const app = new Hono()
-
-app.use('*', poweredBy())
+const app = new Hono();
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+  return c.text('Hello world');
+});
 
-export default app
+export default app;
