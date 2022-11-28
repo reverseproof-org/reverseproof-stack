@@ -9,7 +9,10 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "@nrwl/devkit": "^15.2.1",
     "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "^15.2.1",
+    "@nxrocks/nx-flutter": "^5.0.0",
     "nx": "15.2.1",
     "prettier": "^2.6.2"
   },

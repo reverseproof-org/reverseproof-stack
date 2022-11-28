@@ -14,5 +14,8 @@
         "accessToken": "MmVjMDYyMWEtYTU0Yy00NjJjLTg0MjctNDg4MTY4ZTg3NzUwfHJlYWQtd3JpdGU="
       }
     }
-  }
+  },
+  "plugins": [
+    "@nxrocks/nx-flutter"
+  ]
 }

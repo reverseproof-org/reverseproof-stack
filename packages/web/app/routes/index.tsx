@@ -1,7 +1,6 @@
+import { Form } from '@remix-run/react';
+import '~/styles/routes/index.css';
+
 export default function Index() {
-  return (
-    <>
-      <h1>Hello world!</h1>
-    </>
-  );
+  return <div className="hero-container">hifjds</div>;
 }

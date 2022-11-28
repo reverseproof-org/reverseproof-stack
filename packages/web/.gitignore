@@ -1,6 +1,7 @@
 node_modules
 
 /.cache
+/app/styles
 /functions/\[\[path\]\].js
 /functions/\[\[path\]\].js.map
 /public/build

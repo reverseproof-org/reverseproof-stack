@@ -1,7 +1,0 @@
-name="reverseproof-api"
-main="src/index.ts"
-
-compatibility_date = "2022-11-19"
-
-[build.upload]
-format = "modules"
