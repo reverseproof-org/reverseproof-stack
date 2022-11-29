@@ -11,7 +11,7 @@
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
     "dev:sass": "sass --watch app/styles/scss:app/styles/css",
-    "dev": "run-p \"dev:*\"",
+    "dev": "remix build && run-p \"dev:*\"",
     "start": "cross-env NODE_ENV=production npm run dev:wrangler",
     "lint": "eslint",
     "test": "eslint && jest --verbose"
