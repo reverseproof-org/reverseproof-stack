@@ -7,11 +7,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import Header from '~/components/header';
-import styles from '~/styles/app.css';
+import Header, { links as headerLinks } from '~/components/header';
+import styles from './styles/css/app.css';
 
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: styles }];
+  return [...headerLinks(), { rel: 'stylesheet', href: styles }];
 };
 
 export const meta: MetaFunction = () => ({
