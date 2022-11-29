@@ -40,6 +40,11 @@ export const loader: LoaderFunction = async ({ request, context }) => {
     data: { session },
   } = await supabaseClient.auth.getSession();
 
+  response.headers.set(
+    'set-cookie',
+    response.headers.get('set-cookie')! + '; HttpOnly'
+  );
+
   return json(
     { session },
     {
