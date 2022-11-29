@@ -6,12 +6,12 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "build": "yarn build:css && remix build",
+    "build": "npm run build:css && remix build",
     "build:css": "sass app/styles/scss:app/styles/css --style compressed",
     "dev:sass": "sass --watch app/styles/scss:app/styles/css --style compressed",
     "dev:remix": "remix watch",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
-    "dev": "yarn build && run-p \"dev:*\"",
+    "dev": "npm run build && run-p \"dev:*\"",
     "start": "cross-env NODE_ENV=production npm run dev:wrangler",
     "lint": "eslint",
     "test": "eslint && jest --verbose"
