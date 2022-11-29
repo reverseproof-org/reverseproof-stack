@@ -1,0 +1,12 @@
+@use "../mixins.scss" as m;
+
+.hero-container {
+    @include m.box(100%, 100%);
+    @include m.flex-center;
+}
+.hero-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

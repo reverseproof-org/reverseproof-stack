@@ -1,11 +1,16 @@
+@use "../mixins.scss" as m;
+
 .header-container {
-    width: 100%;
-    height: 50px;
+    @include m.box(100%, 50px);
+    @include m.flex-center;
+    position: fixed;
     background-color: lightgrey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .header-title {
+    font-weight: bold;
     height: min;
+}
+.user-status {
+    position: absolute;
+    right: 10px;
 }

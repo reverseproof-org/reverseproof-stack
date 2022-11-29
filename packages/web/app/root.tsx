@@ -1,4 +1,9 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/cloudflare';
+import type {
+  LinksFunction,
+  MetaFunction,
+  LoaderFunction,
+} from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import {
   Links,
   LiveReload,
@@ -6,7 +11,11 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from '@remix-run/react';
+import { createServerClient } from '@supabase/auth-helpers-remix';
+import sessionContext from './sessionContext';
+
 import Header, { links as headerLinks } from '~/components/header';
 import styles from './styles/css/app.css';
 
@@ -20,7 +29,27 @@ export const meta: MetaFunction = () => ({
   viewport: 'width=device-width,initial-scale=1',
 });
 
+export const loader: LoaderFunction = async ({ request, context }) => {
+  const response = new Response();
+  const supabaseClient = createServerClient(
+    context.SUPABASE_URL as string,
+    context.SUPABASE_ANON_KEY as string,
+    { request, response }
+  );
+  const {
+    data: { session },
+  } = await supabaseClient.auth.getSession();
+
+  return json(
+    { session },
+    {
+      headers: response.headers,
+    }
+  );
+};
+
 export default function App() {
+  const { session } = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -28,11 +57,13 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Header />
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
+        <sessionContext.Provider value={session}>
+          <Header />
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </sessionContext.Provider>
       </body>
     </html>
   );

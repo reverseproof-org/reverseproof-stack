@@ -1,0 +1,18 @@
+@use "../mixins.scss" as m;
+
+.login-container {
+    @include m.box(100%, 100%);
+    @include m.flex-center();
+    & Form {
+        @include m.box(400px, 500px);
+        @include m.flex-center();
+        flex-direction: column;
+        max-width: 75vw;
+        max-height: 75vh;
+        border: 1px solid black;
+        border-radius: 5px;
+        & * {
+            margin: 10px;
+        }
+    }
+}

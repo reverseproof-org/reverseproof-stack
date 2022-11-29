@@ -1,4 +1,6 @@
 import type { LinksFunction } from '@remix-run/cloudflare';
+import { useContext } from 'react';
+import sessionContext from '~/sessionContext';
 import styles from '../styles/css/components/header.css';
 
 export const links: LinksFunction = () => {
@@ -6,9 +8,11 @@ export const links: LinksFunction = () => {
 };
 
 export default function Header() {
+  const session = useContext(sessionContext);
   return (
     <div className="header-container">
-      <h1 className="header-title">HEADER</h1>
+      <h3 className="header-title">HEADER</h3>
+      <div className="user-status">{session ? 'hello' : 'logged out'}</div>
     </div>
   );
 }
