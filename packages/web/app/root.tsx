@@ -14,7 +14,7 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import { createServerClient } from '@supabase/auth-helpers-remix';
-import sessionContext from './sessionContext';
+import userSession from './userSession';
 
 import Header, { links as headerLinks } from '~/components/header';
 import styles from './styles/css/app.css';
@@ -44,7 +44,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
   secureCookie(response);
 
   return json(
-    { session },
+    { user: session?.user },
     {
       headers: response.headers,
     }
@@ -52,7 +52,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
 };
 
 export default function App() {
-  const { session } = useLoaderData();
+  const { user } = useLoaderData();
   return (
     <html lang="en">
       <head>
@@ -60,13 +60,13 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <sessionContext.Provider value={session}>
+        <userSession.Provider value={user.email}>
           <Header />
           <Outlet />
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
-        </sessionContext.Provider>
+        </userSession.Provider>
       </body>
     </html>
   );
