@@ -18,6 +18,7 @@ import sessionContext from './sessionContext';
 
 import Header, { links as headerLinks } from '~/components/header';
 import styles from './styles/css/app.css';
+import secureCookie from './utils/httponly';
 
 export const links: LinksFunction = () => {
   return [...headerLinks(), { rel: 'stylesheet', href: styles }];
@@ -40,10 +41,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
     data: { session },
   } = await supabaseClient.auth.getSession();
 
-  response.headers.set(
-    'set-cookie',
-    response.headers.get('set-cookie')! + '; HttpOnly'
-  );
+  secureCookie(response);
 
   return json(
     { session },

@@ -1,8 +1,9 @@
 import type { LinksFunction, ActionFunction } from '@remix-run/cloudflare';
-import { json, createCookie } from '@remix-run/cloudflare';
+import { json } from '@remix-run/cloudflare';
 import { Form } from '@remix-run/react';
 import { createServerClient } from '@supabase/auth-helpers-remix';
 import styles from '~/styles/css/routes/login.css';
+import secureCookie from '~/utils/httponly';
 
 export const action: ActionFunction = async ({ request, context }) => {
   const formData = await request.formData();
@@ -20,11 +21,8 @@ export const action: ActionFunction = async ({ request, context }) => {
     email: String(loginEmail),
     password: String(loginPassword),
   });
-  response.headers.set(
-    'set-cookie',
-    response.headers.get('set-cookie')! + '; HttpOnly'
-  );
-  console.log(response.headers);
+  secureCookie(response);
+
   return json(
     { data, error },
     {
