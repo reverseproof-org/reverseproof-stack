@@ -60,7 +60,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <userSession.Provider value={user.email}>
+        <userSession.Provider value={user}>
           <Header />
           <Outlet />
           <ScrollRestoration />

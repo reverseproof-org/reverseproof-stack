@@ -9,11 +9,10 @@ export const links: LinksFunction = () => {
 
 export default function Header() {
   const user = useContext(userContext);
-  console.log(user);
   return (
     <div className="header-container">
       <h3 className="header-title">HEADER</h3>
-      <div className="user-status">{user ? `hello ${user}` : 'logged out'}</div>
+      <div className="user-status">{user ? user['email'] : 'logged out'}</div>
     </div>
   );
 }
