@@ -1,4 +1,7 @@
 import type { LinksFunction } from '@remix-run/cloudflare';
+import { useEffect } from 'react';
+import url from 'url';
+import querystring from 'querystring';
 import styles from '../styles/css/routes/index.css';
 
 export const links: LinksFunction = () => {
