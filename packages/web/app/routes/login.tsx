@@ -39,8 +39,13 @@ export default function Login() {
   return (
     <div className="login-container">
       <Form method="post">
-        <input type="text" name="email" placeholder="email" />
-        <input type="password" name="password" placeholder="password" />
+        <input type="text" name="email" placeholder="email" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          required
+        />
         <input type="submit" />
       </Form>
     </div>
