@@ -1,7 +1,7 @@
 @use "../mixins.scss" as m;
 
 .hero-container {
-    @include m.box(100%, 100%);
+    @include m.box(100%);
     @include m.flex-center;
 }
 .hero-title {
