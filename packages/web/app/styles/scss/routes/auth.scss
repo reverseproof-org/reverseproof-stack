@@ -1,0 +1,12 @@
+@use "../mixins.scss" as m;
+
+.auth-container {
+    @include m.box(100%);
+    @include m.flex-center;
+}
+
+.auth-form-container {
+    @include m.box(50%, 75%);
+    @include m.flex-center;
+    border: 1px solid black;
+}

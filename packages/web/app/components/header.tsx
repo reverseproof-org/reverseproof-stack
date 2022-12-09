@@ -1,4 +1,5 @@
 import type { LinksFunction } from '@remix-run/cloudflare';
+import { useFetcher } from '@remix-run/react';
 import { useContext } from 'react';
 import userContext from '~/userSession';
 import styles from '../styles/css/components/header.css';
